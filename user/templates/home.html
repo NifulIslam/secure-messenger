@@ -1,8 +1,32 @@
+{% for msg in conversation%}
+    <form method="post" action="{% url 'encryptAll' %}" >
+        {% csrf_token %}
+        <input type="hidden" name="id_" value="{{msg.id_}}">
+        <input type="text" name="_id" value="{{msg.from}}" readonly>
+        
+        {% if msg.file is not none %}
+            <input type="hidden" name="file" value="{{msg.file}}" readonly>
+        {% endif %}
+        {% if msg.text is not none %}
+            <input type="text" name="content" value="{{msg.text}}" readonly>
+        {% endif %}
+        
+        <br>
+        <input type="text" name="time" value="{{msg.time}}" readonly>
+        <input type="submit" name="encrypt" value="encrypt">
+        
+    </form>
+{% endfor %}
+
+
+
+
 <form method="post" action="{% url 'sendHandle' %}" >
     {% csrf_token %}
     <input type = 'text' name = 'message'>
     <input type="submit">
 </form>
 <a href="{% url 'watermarkPage' %}"> send watermarked image</a> <br>
-<a href="{% url 'encryptedImgPage' %}"> send encrypted image</a>
+<a href="{% url 'encryptedImgPage' %}"> send encrypted image</a><br>
+<a href="{% url 'filePage' %}"> send encrypted file</a>
 

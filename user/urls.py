@@ -9,4 +9,7 @@ urlpatterns =[
     path('watermarkMsgHandle',views.watermarkMsgHandle,name = "watermarkMsgHandle"),
     path('encryptedImgPage',views.encryptedImgPage,name = "encryptedImgPage"),
     path('encryptede_image_handle',views.encryptede_image_handle,name = "encryptede_image_handle"),
+    path('fileEncryptionHandle',views.fileEncryptionHandle,name = "fileEncryptionHandle"),
+    path('filePage',views.filePage,name = "filePage"),
+    path('encryptAll',views.encryptAll,name = "encryptAll"),
 ]
