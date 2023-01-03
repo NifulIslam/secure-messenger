@@ -1,0 +1,5 @@
+<form method="post" action="{% url 'encryptede_image_handle' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    image:<input type="file" name="photo" required> <br>
+    <input type="submit" name = 'submitimgwatermark'>
+</form>
