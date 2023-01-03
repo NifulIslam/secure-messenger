@@ -62,12 +62,19 @@ class DBConnect:
 
         DBConnect.__instance = db
 
+
+
 def Encode(key,message):
     enc=[]
     for i in range(len(message)):
         key_c = key[i % len(key)]
         enc.append(chr((ord(message[i]) + ord(key_c)) % 256))
     return base64.urlsafe_b64encode("".join(enc).encode()).decode()
+
+
+
+
+
 
 def Decode(key,message):
     dec=[]
@@ -76,6 +83,9 @@ def Decode(key,message):
         key_c = key[i % len(key)]
         dec.append(chr((256 + ord(message[i])- ord(key_c)) % 256))
     return "".join(dec)
+
+
+
 
 def encrypt(filename, key):
   f = Fernet(key)
